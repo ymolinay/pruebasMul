@@ -1,0 +1,45 @@
+<h3>Servicio</h3>
+<form role="form"
+      novalidate
+      [formGroup]="formService">
+  <div class="form-group"
+       [ngClass]="{'has-error': name.errors && name.dirty}">
+    <label for="inpName">Nombre</label>
+    <input type="text"
+           class="form-control"
+           autocomplete="off"
+           id="inpName"
+           placeholder="ingrese texto"
+           required
+           formControlName="name">
+  </div>
+  <div class="form-group"
+       [ngClass]="{'has-error': description.errors && description.dirty}">
+    <label for="inpDesc">Descripción</label>
+    <input type="text"
+           class="form-control"
+           autocomplete="off"
+           id="inpDesc"
+           placeholder="Ingrese texto"
+           required
+           formControlName="description">
+  </div>
+  <div class="form-group"
+       [ngClass]="{'has-error': type.errors && type.dirty}">
+    <label for="inpType">Tipo</label>
+    <ng-select id="inpType"
+               autocomplete="off"
+               formControlName="type"
+               placeholder="Seleccionar"
+               [options]="typeOptions"></ng-select>
+  </div>
+
+  <button (click)="saveService()"
+          type="button"
+          class="btn btn-default">Grabar
+  </button>
+  <button (click)="cancel()"
+          type="button"
+          class="btn btn-default">Cancelar
+  </button>
+</form>
